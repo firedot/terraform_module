@@ -1,8 +1,7 @@
-variable "ami_id" {}
 variable "instance_type" {}
-
+variable "ami" {}
 resource "aws_instance" "db" {
-  ami        = "${var.ami_id}"
+  ami           = "${var.ami}"
   instance_type = "${var.instance_type}"
 }
 

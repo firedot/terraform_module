@@ -1,10 +1,3 @@
-#
-# Your security group ID is:
-#
-#    abcd1234
-#
-#...
-#
 variable "access_key" {
   type = "string"
 }
@@ -18,11 +11,16 @@ variable "region" {
   default = "us-east-2"
 }
 
+variable "ami" {
+  type    = "string"
+  default = "ami-941a1ff1"
+}
+
 module "my-module" {
   #source can be any URL of file_path
   source        = "./my-module/"
-  ami_id           = "ami-941a1ff1"
   instance_type = "t2.micro"
+  ami           = "${var.ami}"
 }
 
 provider "aws" {
@@ -32,7 +30,7 @@ provider "aws" {
 }
 
 resource "aws_instance" "web" {
-  ami        = "ami-941a1ff1"
+  ami           = "${var.ami}"
   instance_type = "t2.micro"
 
   subnet_id              = "subnet-f090b498"
@@ -55,6 +53,7 @@ output "public_dns" {
 output "address_from_module" {
   value = "${module.my-module.public_ip}"
 }
+
 output "dns_from_module" {
-value = "${module.my-module.public_dns}"
+  value = "${module.my-module.public_dns}"
 }
