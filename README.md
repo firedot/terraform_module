@@ -3,9 +3,9 @@
 Basic terraform configuration using a module 
 
 
-** The code in the repo is used to create two instances in 
+***The code in the repo is used to create two instances in 
     Amazon EC2. 
-    In order to use it, you should have an Account in AWS ***
+    In order to use it, you should have an Account in AWS***
 
 ### Prerequisites
 
