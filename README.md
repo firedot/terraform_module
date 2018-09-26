@@ -25,7 +25,8 @@ Basic terraform configuration using a module
     cd terraform_module 
   
    3. Initialize your terraform working directory with the following line: 
+   
   
-   terraform init
+    terraform init
    
    4. Run ``` terraform apply ``` to provision your infrastructure. 
