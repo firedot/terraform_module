@@ -1,13 +1,10 @@
 variable "access_key" {
-  type = "string"
 }
 
 variable "secret_key" {
-  type = "string"
 }
 
 variable "region" {
-  type    = "string"
   default = "us-east-2"
 }
 
@@ -15,10 +12,14 @@ variable "ami" {
   default = "ami-941a1ff1"
 }
 
-module "my-module" {
+variable "instance_type" {
+default = "t2.micro"
+}
+
+module "ec2launcher" {
   #source can be any URL of file_path
-  source        = "./my-module/"
-  instance_type = "t2.micro"
+  source        = "./modules/"
+  instance_type = "${var.instance_type}"
   ami           = "${var.ami}"
 }
 
@@ -28,9 +29,9 @@ provider "aws" {
   region     = "${var.region}"
 }
 output "address_from_module" {
-  value = "${module.my-module.public_ip}"
+  value = "${module.ec2launcher.public_ip}"
 }
 
 output "dns_from_module" {
-  value = "${module.my-module.public_dns}"
+  value = "${module.ec2launcher.public_dns}"
 }
