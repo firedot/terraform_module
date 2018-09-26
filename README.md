@@ -12,6 +12,7 @@ Basic terraform configuration using a module
    * AWS Account
    * [terraform](https://www.terraform.io/intro/getting-started/install.html)
 
+### How to provision your infrastructure
 
    1. Clone this repository by running the line below: 
 
