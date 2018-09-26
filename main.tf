@@ -1,8 +1,6 @@
-variable "access_key" {
-}
+variable "access_key" {}
 
-variable "secret_key" {
-}
+variable "secret_key" {}
 
 variable "region" {
   default = "us-east-2"
@@ -13,7 +11,7 @@ variable "ami" {
 }
 
 variable "instance_type" {
-default = "t2.micro"
+  default = "t2.micro"
 }
 
 module "ec2launcher" {
@@ -28,6 +26,7 @@ provider "aws" {
   secret_key = "${var.secret_key}"
   region     = "${var.region}"
 }
+
 output "address_from_module" {
   value = "${module.ec2launcher.public_ip}"
 }
