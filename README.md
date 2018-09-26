@@ -17,15 +17,15 @@ Basic terraform configuration using a module
    1. Clone this repository by running the line below: 
 
    
-    ```git clone https://github.com/firedot/terraform_module.git ```
+    git clone https://github.com/firedot/terraform_module.git 
   
    2. Go to the cloned repository directory: 
 
    
-    ```cd terraform_module ```
+    cd terraform_module 
   
    3. Initialize your terraform working directory with the following line: 
   
-   ```terraform init```
+   terraform init
    
    4. Run ``` terraform apply ``` to provision your infrastructure. 
